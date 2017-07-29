@@ -1,8 +1,8 @@
 'use strict';
 
 function choose_even(collection) {
-
-  //在这里写入代码
+  let result = Array.from(collection);
+  return result.filter(ele => ele % 2 === 0);
 }
 
 module.exports = choose_even;

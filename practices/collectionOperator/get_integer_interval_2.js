@@ -1,26 +1,14 @@
 'use strict';
 
 function get_integer_interval_2(number_a, number_b) {
+  if (number_a === number_b) {
+    return number_a % 2 === 0 ? [number_a] : [];
+  }
   let result = [];
-  let shortStart = true;
-  if (number_a > number_b) {
-    shortStart = false;
-    [number_a,number_b] = [number_b,number_a];
-  } else if(number_a === number_b) {
-    if(number_a % 2 === 0){
-      result.push(number_a);
-      return result;
-    }
+  for (let index = Math.min(number_a, number_b); index <= Math.max(number_a, number_b); index++) {
+    index % 2 === 0 ? result.push(index) : null;
   }
-  for(let index = number_a; index <= number_b; index++){
-    if(index % 2 === 0){
-      result.push(index);
-    }
-  }
-  if(!shortStart){
-    result.reverse();
-  }
-  return result;
+  return number_a > number_b ? result.reverse() : result;
 }
 
 module.exports = get_integer_interval_2;
